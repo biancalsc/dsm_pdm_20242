@@ -11,14 +11,15 @@ export default StyleSheet.create({
     borderColor: '#ccc',
     marginBottom: 15,
     padding: 10,
-    borderRadius: 5,
+    borderRadius: 15,
   },
   button: {
-    backgroundColor: '#007bff',
-    borderRadius: 5,
+    backgroundColor: '#243c57',
+    borderRadius: 25,
     padding: 10,
     alignItems: 'center',
     marginTop: 10,
+    width:52,
   },
   buttonText: {
     color: '#fff',

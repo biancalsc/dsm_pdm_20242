@@ -23,7 +23,7 @@ export default function TelaCadastro({ navigation }: any) {
   });
 
   // Insira sua chave de API diretamente para teste (não use em produção)
-  const GOOGLE_API_KEY = "AIzaSyDV3OhObrpf_G_zLKdjpwVu7GnXUJyXZiw";
+  const GOOGLE_API_KEY = "DIGITE SUA CHAVE DA API";
 
   // Função para buscar coordenadas e endereço formatado
   const buscarCoordenadas = async () => {

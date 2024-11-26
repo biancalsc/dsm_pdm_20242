@@ -12,4 +12,12 @@ export default StyleSheet.create({
     fontWeight: 'bold',
     marginBottom: 20,
   },
+  button:{
+    borderRadius:25,
+    backgroundColor: "#3869d9cc",
+    width: 150,
+    height:50,
+    alignItems: 'center',
+    justifyContent: 'center',
+  }
 });

@@ -7,14 +7,16 @@ import styles from "./styles";
 import { updateContact } from "../../service/contactService";
 
 export default function TelaCadastro({ navigation, route }: any) {
-  const GOOGLE_API_KEY = "AIzaSyDV3OhObrpf_G_zLKdjpwVu7GnXUJyXZiw"; // Substitua por variáveis de ambiente em produção
+  const GOOGLE_API_KEY = "DIGITE A CHAVE DA SUA API"; // Substitua por variáveis de ambiente em produção
   const { contato } = route.params;
 
   const [nome, setNome] = useState(contato?.name || "");
   const [endereco, setEndereco] = useState(contato?.address || "");
   const [longNames, setLongNames] = useState(contato?.address || ""); // Endereço formatado
   const [region, setRegion] = useState<MapRegion | null>(null); // Estado inicial como null
-  const [markerPosition, setMarkerPosition] = useState<MarkerPosition | null>(null);
+  const [markerPosition, setMarkerPosition] = useState<MarkerPosition | null>(
+    null
+  );
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -68,7 +70,9 @@ export default function TelaCadastro({ navigation, route }: any) {
     setLoading(true);
     try {
       const response = await fetch(
-        `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(endereco)}&key=${GOOGLE_API_KEY}`
+        `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(
+          endereco
+        )}&key=${GOOGLE_API_KEY}`
       );
       const data = await response.json();
       setLoading(false);
@@ -106,7 +110,10 @@ export default function TelaCadastro({ navigation, route }: any) {
     await buscarEnderecoPorCoordenadas(latitude, longitude);
   };
 
-  const buscarEnderecoPorCoordenadas = async (latitude: number, longitude: number) => {
+  const buscarEnderecoPorCoordenadas = async (
+    latitude: number,
+    longitude: number
+  ) => {
     setLoading(true);
     try {
       const response = await fetch(
@@ -146,9 +153,11 @@ export default function TelaCadastro({ navigation, route }: any) {
         onChangeText={setEndereco}
         onBlur={buscarCoordenadas}
       />
-      {longNames ? <Text style={styles.enderecoText}>Endereço: {longNames}</Text> : null}
+      {longNames ? (
+        <Text style={styles.enderecoText}>Endereço: {longNames}</Text>
+      ) : null}
 
-      <Button title="Salvar" onPress={salvarContato} disabled={loading} />
+      <Button title="Salvar" onPress={salvarContato} disabled={loading}  />
       {loading && <Text>Carregando...</Text>}
 
       <MapView

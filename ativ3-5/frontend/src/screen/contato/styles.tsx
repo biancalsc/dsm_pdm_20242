@@ -1,3 +1,4 @@
+
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
@@ -28,14 +29,15 @@ export default StyleSheet.create({
     color: '#333',
   },
   labelContainer: {
-    position: 'relative',
-    bottom: 35, // Reposiciona o rótulo acima do pin
     backgroundColor: 'white',
-    padding: 5,
+    paddingVertical: 5,
+    paddingHorizontal: 10,
     borderRadius: 5,
     borderWidth: 1,
     borderColor: '#ccc',
     alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 5, // Distância entre o rótulo e o marcador
   },
   
   labelText: {
@@ -45,9 +47,16 @@ export default StyleSheet.create({
   },
   markerContainer: {
     alignItems: 'center', // Centraliza o rótulo e o pin
+    width: 50,
+    height:50
   },
-  pinIcon: {
-    width: 30, // Largura do pin
+
+  markerTudo:{
+    width: 50,
+    height:50
+  },
+  pinImage: {
+    width: 20, // Largura do pin
     height: 40, // Altura do pin
   },
 });

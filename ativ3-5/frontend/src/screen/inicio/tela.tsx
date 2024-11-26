@@ -1,14 +1,9 @@
-import React, { useEffect } from 'react';
-import { View, Text, Button, Alert } from 'react-native';
+import React from 'react';
+import { View, Text, Button, Alert, TouchableOpacity } from 'react-native';
 import * as LocalAuthentication from 'expo-local-authentication';
 import styles from './styles';
 
 export default function TelaInicio({ navigation }: any) {
-  useEffect(() => {
-    // Verificar e solicitar autenticação biométrica no início
-    verificarFaceID();
-  }, []);
-
   // Função para verificar o Face ID e autenticar o usuário
   const verificarFaceID = async () => {
     // Verifica se o dispositivo tem hardware biométrico compatível (Face ID ou Touch ID)
@@ -37,7 +32,10 @@ export default function TelaInicio({ navigation }: any) {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Bem-vindo ao App!</Text>
-      <Button title="Iniciar" onPress={() => navigation.navigate('Contatos')} />
+      {/* Botão personalizado que chama a autenticação biométrica */}
+      <TouchableOpacity style={styles.button} onPress={verificarFaceID}>
+        <Text>Iniciar</Text>
+      </TouchableOpacity>
     </View>
   );
 }
